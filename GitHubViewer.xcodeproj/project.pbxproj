@@ -81,14 +81,38 @@
 			isa = PBXGroup;
 			children = (
 				D8FB1DEB228AED7E00203E4B /* AppDelegate.swift */,
-				D8FB1DED228AED7E00203E4B /* ViewController.swift */,
 				D8FB1DEF228AED7E00203E4B /* Main.storyboard */,
+				D8FB1E01228B06E700203E4B /* controller */,
+				D8FB1E02228B071600203E4B /* service */,
+				D8FB1E03228B075B00203E4B /* resources */,
+			);
+			path = GitHubViewer;
+			sourceTree = "<group>";
+		};
+		D8FB1E01228B06E700203E4B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8FB1DED228AED7E00203E4B /* ViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D8FB1E02228B071600203E4B /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		D8FB1E03228B075B00203E4B /* resources */ = {
+			isa = PBXGroup;
+			children = (
 				D8FB1DF2228AED8100203E4B /* Assets.xcassets */,
 				D8FB1DF4228AED8100203E4B /* LaunchScreen.storyboard */,
 				D8FB1DF7228AED8100203E4B /* Info.plist */,
 				D8FB1DFD228AEECB00203E4B /* Settings.bundle */,
 			);
-			path = GitHubViewer;
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitHubViewer/Info.plist;
+				INFOPLIST_FILE = GitHubViewer/resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitHubViewer/Info.plist;
+				INFOPLIST_FILE = GitHubViewer/resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

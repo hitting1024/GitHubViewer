@@ -3,6 +3,7 @@ platform :ios, "11.0"
 use_frameworks!
 
 target :'GitHubViewer' do
+    pod 'Alamofire'
 end
 
  post_install do | installer |

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E80B4F94E55357B551E763F /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EB073BDB1E33D1E0B13990 /* Pods_GitHubViewer.framework */; };
 		D8FB1DEC228AED7E00203E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1DEB228AED7E00203E4B /* AppDelegate.swift */; };
-		D8FB1DEE228AED7E00203E4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1DED228AED7E00203E4B /* ViewController.swift */; };
+		D8FB1DEE228AED7E00203E4B /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1DED228AED7E00203E4B /* UserListViewController.swift */; };
 		D8FB1DF1228AED7E00203E4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1DEF228AED7E00203E4B /* Main.storyboard */; };
 		D8FB1DF3228AED8100203E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1DF2228AED8100203E4B /* Assets.xcassets */; };
 		D8FB1DF6228AED8100203E4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1DF4228AED8100203E4B /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 		C488F3D143937417B8014B67 /* Pods-GitHubViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer.release.xcconfig"; sourceTree = "<group>"; };
 		D8FB1DE8228AED7E00203E4B /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FB1DEB228AED7E00203E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8FB1DED228AED7E00203E4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8FB1DED228AED7E00203E4B /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		D8FB1DF0228AED7E00203E4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8FB1DF2228AED8100203E4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8FB1DF5228AED8100203E4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		D8FB1E01228B06E700203E4B /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				D8FB1DED228AED7E00203E4B /* ViewController.swift */,
+				D8FB1DED228AED7E00203E4B /* UserListViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -285,8 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8FB1DEE228AED7E00203E4B /* ViewController.swift in Sources */,
 				D8FB1E08228B0B6300203E4B /* User.swift in Sources */,
+				D8FB1DEE228AED7E00203E4B /* UserListViewController.swift in Sources */,
 				D8FB1E05228B0A8E00203E4B /* GitHubService.swift in Sources */,
 				D8FB1E0B228DB1EB00203E4B /* UserCell.swift in Sources */,
 				D8FB1DEC228AED7E00203E4B /* AppDelegate.swift in Sources */,

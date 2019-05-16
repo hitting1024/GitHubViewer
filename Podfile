@@ -4,6 +4,7 @@ use_frameworks!
 
 target :'GitHubViewer' do
     pod 'Alamofire'
+    pod 'AlamofireImage'
 end
 
  post_install do | installer |

@@ -25,8 +25,10 @@ class UserListViewController: UIViewController {
         
         // スクロール時の読み込み設定
         self.tableView.addInfiniteScroll(handler: { [weak self] tableView in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             self?.loadData(completionHandler: {
                 tableView.finishInfiniteScroll()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
         })
         // 初回読み込み

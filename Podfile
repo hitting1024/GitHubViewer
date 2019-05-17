@@ -5,6 +5,7 @@ use_frameworks!
 target :'GitHubViewer' do
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'UIScrollView-InfiniteScroll'
 end
 
  post_install do | installer |

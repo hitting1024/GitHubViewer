@@ -2,20 +2,24 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
+  - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - UIScrollView-InfiniteScroll
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 539e98839d012ae068bec115247c08c27d072254
+PODFILE CHECKSUM: 9c09f4808eda2893323a53c896300e80a0b60d8b
 
 COCOAPODS: 1.5.3

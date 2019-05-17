@@ -34,6 +34,8 @@ class UserListViewController: UIViewController {
     }
     
     /// ユーザー一覧データ取得
+    ///
+    /// - Parameter completionHandler: データ取得完了時に呼び出されるコールバック
     private func loadData(completionHandler: @escaping () -> Void) {
         GitHubService.getUserList(page: self.nextPageNum, completionHandler: { userList, nextPageNum in
             defer { completionHandler() }

@@ -36,6 +36,7 @@
 		D8FB1E07228B0B6300203E4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8FB1E0A228DB1EB00203E4B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D8FB1E0C228DB1F500203E4B /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		D8FB1E0E228F0A5900203E4B /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 		D8FB1E03228B075B00203E4B /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				D8FB1E0E228F0A5900203E4B /* Bridging-Header.h */,
 				D8FB1DF2228AED8100203E4B /* Assets.xcassets */,
 				D8FB1DF4228AED8100203E4B /* LaunchScreen.storyboard */,
 				D8FB1DF7228AED8100203E4B /* Info.plist */,
@@ -447,6 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.hitting.GitHubViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/resources/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.hitting.GitHubViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/resources/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

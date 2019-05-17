@@ -22,21 +22,35 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: UserCell.userCellIdentifier, bundle: nil), forCellReuseIdentifier: UserCell.userCellIdentifier)
-        self.loadData()
+        
+        // スクロール時の読み込み設定
+        self.tableView.addInfiniteScroll(handler: { [weak self] tableView in
+            self?.loadData(completionHandler: {
+                tableView.finishInfiniteScroll()
+            })
+        })
+        // 初回読み込み
+        self.tableView.beginInfiniteScroll(true)
     }
     
     /// ユーザー一覧データ取得
-    private func loadData() {
+    private func loadData(completionHandler: @escaping () -> Void) {
         GitHubService.getUserList(page: self.nextPageNum, completionHandler: { userList, nextPageNum in
+            defer { completionHandler() }
+            
             self.nextPageNum = nextPageNum
             guard let userList = userList else {
                 // TODO 取得失敗ダイアログ表示
                 return
             }
-            userList.forEach({ user in
-                self.userList.append(user)
-            })
-            self.tableView.reloadData()
+            
+            let prevCount = self.userList.count
+            self.userList.append(contentsOf: userList)
+            // ビュー更新
+            let indexPaths = (prevCount..<(prevCount+userList.count)).map { return IndexPath(row: $0, section: 0) }
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
         })
     }
 

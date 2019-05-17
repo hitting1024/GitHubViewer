@@ -36,7 +36,7 @@ class GitHubService {
     class func getUserList(page: Int?, completionHandler: @escaping (Array<User>?, Int?) -> Void) {
         guard let page = page else {
             completionHandler(nil, nil)
-            return;
+            return
         }
         Alamofire.request(gitHubAPISearchUserURL, parameters: ["q": "type:user", "per_page": "100", "page": page]).responseJSON(completionHandler: { response in
 

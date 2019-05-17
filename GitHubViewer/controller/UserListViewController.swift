@@ -15,6 +15,8 @@ class UserListViewController: UIViewController {
     
     /// GitHubユーザリスト
     private var userList = Array<User>()
+    /// 検索ページ番号
+    private var nextPageNum: Int? = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,8 @@ class UserListViewController: UIViewController {
     
     /// ユーザー一覧データ取得
     private func loadData() {
-        GitHubService.getUserList(completionHandler: { userList in
+        GitHubService.getUserList(page: self.nextPageNum, completionHandler: { userList, nextPageNum in
+            self.nextPageNum = nextPageNum
             guard let userList = userList else {
                 // TODO 取得失敗ダイアログ表示
                 return

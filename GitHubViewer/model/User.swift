@@ -15,5 +15,9 @@ struct User: Codable {
     let avatarUrl: URL
     /// ユーザー名
     let login: String
-    
+    /// ユーザ詳細URL
+    let url: URL
+    /// リポジトリURL
+    let reposUrl: URL
+
 }

@@ -50,6 +50,47 @@ class GitHubService {
         })
     }
     
+    /// GitHub APIを用いてユーザ詳細を取得する
+    ///
+    /// - Parameters:
+    ///   - url: 対象ユーザ詳細URL
+    ///   - completionHandler: GitHubユーザー詳細を渡すコールバック。ユーザー詳細がnilの場合は取得失敗
+    class func getUserDetail(url: URL?, completionHandler: @escaping (UserDetail?) -> Void) {
+        guard let url = url else {
+            completionHandler(nil)
+            return
+        }
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            guard let jsonData = response.data else {
+                completionHandler(nil)
+                return
+            }
+            let userDetail = try? jsonDecoder.decode(UserDetail.self, from: jsonData)
+            completionHandler(userDetail)
+        })
+    }
+    
+    /// GitHub APIを用いて対象リポジトリ一覧(not forked)を取得する
+    ///
+    /// - Parameters:
+    ///   - url: 対象リポジトリURL
+    ///   - completionHandler: forkedを除いたGitHubリポジトリのリストおよび次ページ番号を渡すコールバック。リストがnilの場合は取得失敗
+    class func getRepositoryList(url: URL?, page: Int?, completionHandler: @escaping (Array<Repository>?, Int?) -> Void) {
+        guard let url = url, let page = page else {
+            completionHandler(nil, nil)
+            return
+        }
+        Alamofire.request(url, parameters: ["per_page": "100", "page": page]).responseJSON(completionHandler: { response in
+            guard let jsonData = response.data else {
+                completionHandler(nil, nil)
+                return
+            }
+            let repositories = try? jsonDecoder.decode([Repository].self, from: jsonData)
+            let nextPageNum = parseNextPageNum(response.response?.allHeaderFields["Link"] as? String)
+            completionHandler(repositories?.filter { return !$0.fork }, nextPageNum)
+        })
+    }
+    
     /// Linkヘッダーから次ページ番号を取得する
     ///
     /// - Parameter linkHeader: Linkヘッダー。以下、フォーマット

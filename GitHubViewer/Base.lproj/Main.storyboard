@@ -52,9 +52,38 @@
                     <view key="view" contentMode="scaleToFill" id="QP7-hh-h4g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGZ-5n-dIO" customClass="UserDetailView" customModule="GitHubViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="CXH-56-qud"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QSq-as-Fnj">
+                                <rect key="frame" x="0.0" y="140" width="414" height="634"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RyC-Mm-bCx" id="VF5-LM-MfW"/>
+                                    <outlet property="delegate" destination="RyC-Mm-bCx" id="zGZ-TK-ewn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="QSq-as-Fnj" firstAttribute="leading" secondItem="adv-bh-FZn" secondAttribute="leading" id="13z-DU-BBe"/>
+                            <constraint firstItem="QSq-as-Fnj" firstAttribute="top" secondItem="PGZ-5n-dIO" secondAttribute="bottom" id="CIG-yo-6DM"/>
+                            <constraint firstItem="QSq-as-Fnj" firstAttribute="bottom" secondItem="adv-bh-FZn" secondAttribute="bottom" id="HqA-nb-ENR"/>
+                            <constraint firstItem="PGZ-5n-dIO" firstAttribute="top" secondItem="adv-bh-FZn" secondAttribute="top" id="aIL-PY-mqT"/>
+                            <constraint firstItem="QSq-as-Fnj" firstAttribute="trailing" secondItem="adv-bh-FZn" secondAttribute="trailing" id="c2m-0f-Ysj"/>
+                            <constraint firstItem="PGZ-5n-dIO" firstAttribute="trailing" secondItem="adv-bh-FZn" secondAttribute="trailing" id="kpn-bH-CCB"/>
+                            <constraint firstItem="PGZ-5n-dIO" firstAttribute="leading" secondItem="adv-bh-FZn" secondAttribute="leading" id="l0I-lW-DNO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="adv-bh-FZn"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="QSq-as-Fnj" id="Gmr-1W-yuw"/>
+                        <outlet property="userDetailView" destination="PGZ-5n-dIO" id="3Bc-tu-sZz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBP-q7-vHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

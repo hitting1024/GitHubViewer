@@ -12,8 +12,12 @@ import Foundation
 struct User: Codable {
 
     /// アイコン画像URL
-    let avatarUrl: String
+    let avatarUrl: URL
     /// ユーザー名
     let login: String
-    
+    /// ユーザ詳細URL
+    let url: URL
+    /// リポジトリURL
+    let reposUrl: URL
+
 }

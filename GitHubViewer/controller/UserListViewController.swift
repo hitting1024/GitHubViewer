@@ -15,10 +15,17 @@ class UserListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    /// Segue識別子
+    private struct SegueIdentifiers {
+        static let showUserRepository = "showUserRepository"
+    }
     /// GitHubユーザリスト
     private var userList = Array<User>()
     /// 検索ページ番号
     private var nextPageNum: Int? = 1
+    
+    /// ターゲットユーザー
+    private var targetUser: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,21 +44,35 @@ class UserListViewController: UIViewController {
         self.tableView.beginInfiniteScroll(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case SegueIdentifiers.showUserRepository:
+            let vc = segue.destination as! UserRepositoryViewController
+            vc.user = self.targetUser
+        default:
+            break
+        }
+    }
+    
     /// ユーザー一覧データ取得
     ///
     /// - Parameter completionHandler: データ取得完了時に呼び出されるコールバック
     private func loadData(completionHandler: @escaping () -> Void) {
-        GitHubService.getUserList(page: self.nextPageNum, completionHandler: { userList, nextPageNum in
-            defer { completionHandler() }
-            
-            self.nextPageNum = nextPageNum
+        defer { completionHandler() }
+        
+        guard let page = self.nextPageNum else {
+            // 全データ取得済み
+            return
+        }
+        GitHubService.getUserList(page: page, completionHandler: { userList, nextPageNum in
             guard let userList = userList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
                 snackbar.show()
                 return
             }
-            
+            self.nextPageNum = nextPageNum
+
             let prevCount = self.userList.count
             self.userList.append(contentsOf: userList)
             // ビュー更新
@@ -85,6 +106,8 @@ extension UserListViewController: UITableViewDataSource {
 extension UserListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.targetUser = self.userList[indexPath.row]
+        self.performSegue(withIdentifier: SegueIdentifiers.showUserRepository, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

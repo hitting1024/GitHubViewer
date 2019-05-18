@@ -8,6 +8,8 @@
 
 import UIKit
 
+import TTGSnackbar
+
 /// ユーザー一覧画面用ViewController
 class UserListViewController: UIViewController {
 
@@ -44,7 +46,9 @@ class UserListViewController: UIViewController {
             
             self.nextPageNum = nextPageNum
             guard let userList = userList else {
-                // TODO 取得失敗ダイアログ表示
+                // 取得失敗ダイアログ表示
+                let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
+                snackbar.show()
                 return
             }
             

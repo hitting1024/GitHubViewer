@@ -21,5 +21,7 @@ struct Repository: Codable {
     let stargazersCount: Int
     /// 説明文
     let description: String?
+    /// リポジトリURL
+    let htmlUrl: URL
     
 }

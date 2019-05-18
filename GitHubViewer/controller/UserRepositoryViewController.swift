@@ -19,10 +19,18 @@ class UserRepositoryViewController: UIViewController {
     /// GitHubユーザー
     var user: User!
     
+    /// Segue識別子
+    private struct SegueIdentifiers {
+        static let showWeb = "showWeb"
+    }
+    
     /// GitHubリポジトリリスト
     private var repositoryList = Array<Repository>()
     /// 検索ページ番号
     private var nextPageNum: Int? = 1
+
+    /// ターゲットリポジトリ
+    private var targetRepository: Repository? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +48,16 @@ class UserRepositoryViewController: UIViewController {
         // 初回読み込み
         self.loadUserDetail()
         self.tableView.beginInfiniteScroll(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case SegueIdentifiers.showWeb:
+            let vc = segue.destination as! WebViewController
+            vc.url = self.targetRepository?.htmlUrl
+        default:
+            break
+        }
     }
     
     /// ユーザー詳細データ取得
@@ -107,6 +125,8 @@ extension UserRepositoryViewController: UITableViewDataSource {
 extension UserRepositoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.targetRepository = self.repositoryList[indexPath.row]
+        self.performSegue(withIdentifier: SegueIdentifiers.showWeb, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

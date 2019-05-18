@@ -83,11 +83,26 @@
                     <connections>
                         <outlet property="tableView" destination="QSq-as-Fnj" id="Gmr-1W-yuw"/>
                         <outlet property="userDetailView" destination="PGZ-5n-dIO" id="3Bc-tu-sZz"/>
+                        <segue destination="Nb5-hp-Kmt" kind="show" identifier="showWeb" id="KYY-Zi-Zhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBP-q7-vHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044.9275362318842" y="115.84821428571428"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="0a7-VK-KLb">
+            <objects>
+                <viewController id="Nb5-hp-Kmt" customClass="WebViewController" customModule="GitHubViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P0B-j4-xzd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="A4j-oS-EvV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijO-GS-qBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3002.898550724638" y="115.84821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rd7-Dv-qjF">

@@ -18,6 +18,7 @@
 		D8FB1E08228B0B6300203E4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E07228B0B6300203E4B /* User.swift */; };
 		D8FB1E0B228DB1EB00203E4B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E0A228DB1EB00203E4B /* UserCell.swift */; };
 		D8FB1E0D228DB1F500203E4B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1E0C228DB1F500203E4B /* UserCell.xib */; };
+		D8FB1E10228FD92E00203E4B /* UserRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E0F228FD92E00203E4B /* UserRepositoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D8FB1E0A228DB1EB00203E4B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D8FB1E0C228DB1F500203E4B /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		D8FB1E0E228F0A5900203E4B /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		D8FB1E0F228FD92E00203E4B /* UserRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D8FB1DED228AED7E00203E4B /* UserListViewController.swift */,
+				D8FB1E0F228FD92E00203E4B /* UserRepositoryViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				D8FB1E08228B0B6300203E4B /* User.swift in Sources */,
 				D8FB1DEE228AED7E00203E4B /* UserListViewController.swift in Sources */,
 				D8FB1E05228B0A8E00203E4B /* GitHubService.swift in Sources */,
+				D8FB1E10228FD92E00203E4B /* UserRepositoryViewController.swift in Sources */,
 				D8FB1E0B228DB1EB00203E4B /* UserCell.swift in Sources */,
 				D8FB1DEC228AED7E00203E4B /* AppDelegate.swift in Sources */,
 			);

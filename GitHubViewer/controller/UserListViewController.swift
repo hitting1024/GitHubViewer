@@ -15,10 +15,17 @@ class UserListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    /// Segue識別子
+    private struct SegueIdentifiers {
+        static let showUserRepository = "showUserRepository"
+    }
     /// GitHubユーザリスト
     private var userList = Array<User>()
     /// 検索ページ番号
     private var nextPageNum: Int? = 1
+    
+    /// ターゲットユーザー
+    private var targetUser: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +42,16 @@ class UserListViewController: UIViewController {
         })
         // 初回読み込み
         self.tableView.beginInfiniteScroll(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case SegueIdentifiers.showUserRepository:
+            let vc = segue.destination as! UserRepositoryViewController
+            vc.user = self.targetUser
+        default:
+            break
+        }
     }
     
     /// ユーザー一覧データ取得
@@ -85,6 +102,8 @@ extension UserListViewController: UITableViewDataSource {
 extension UserListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.targetUser = self.userList[indexPath.row]
+        self.performSegue(withIdentifier: SegueIdentifiers.showUserRepository, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

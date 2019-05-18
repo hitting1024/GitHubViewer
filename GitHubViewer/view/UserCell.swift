@@ -8,7 +8,6 @@
 
 import UIKit
 
-import Alamofire
 import AlamofireImage
 
 /// ユーザー一覧用セル
@@ -18,6 +17,9 @@ class UserCell: UITableViewCell {
     public static let userCellIdentifier = "UserCell"
     /// セルの高さ
     public static let height: CGFloat = 130.0
+    
+    /// デフォルト画像
+    private static let noImage = UIImage(named: "no_image")!
     
     /// アイコン画像
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -29,12 +31,12 @@ class UserCell: UITableViewCell {
     /// - Parameter user: 対象ユーザー
     func setData(user: User) {
         self.usernameLabel.text = user.login
-        // TODO 画像キャッシュ
-        Alamofire.request(user.avatarUrl).responseImage(completionHandler: { response in
-            // TODO 失敗時処理
-            guard let image = response.result.value else { return }
-            self.avatarImageView.image = image.af_imageRounded(withCornerRadius: 10.0)
-        })
+        if let url = URL(string: user.avatarUrl) {
+            let imageFilter = AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarImageView.frame.size, radius: 10.0)
+            self.avatarImageView?.af_setImage(withURL: url, placeholderImage: UserCell.noImage, filter: imageFilter)
+        } else {
+            self.avatarImageView.image = UserCell.noImage
+        }
     }
     
 }

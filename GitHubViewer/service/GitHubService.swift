@@ -33,11 +33,7 @@ class GitHubService {
     /// - Parameters:
     ///   - page: 取得ページ番号
     ///   - completionHandler: GitHubユーザーのリストおよび次ページ番号を渡すコールバック。リストがnilの場合は取得失敗
-    class func getUserList(page: Int?, completionHandler: @escaping (Array<User>?, Int?) -> Void) {
-        guard let page = page else {
-            completionHandler(nil, nil)
-            return
-        }
+    class func getUserList(page: Int, completionHandler: @escaping (Array<User>?, Int?) -> Void) {
         Alamofire.request(gitHubAPISearchUserURL, parameters: ["q": "type:user", "per_page": "100", "page": page]).responseJSON(completionHandler: { response in
 
             guard let jsonData = response.data else {
@@ -75,8 +71,8 @@ class GitHubService {
     /// - Parameters:
     ///   - url: 対象リポジトリURL
     ///   - completionHandler: forkedを除いたGitHubリポジトリのリストおよび次ページ番号を渡すコールバック。リストがnilの場合は取得失敗
-    class func getRepositoryList(url: URL?, page: Int?, completionHandler: @escaping (Array<Repository>?, Int?) -> Void) {
-        guard let url = url, let page = page else {
+    class func getRepositoryList(url: URL?, page: Int, completionHandler: @escaping (Array<Repository>?, Int?) -> Void) {
+        guard let url = url else {
             completionHandler(nil, nil)
             return
         }

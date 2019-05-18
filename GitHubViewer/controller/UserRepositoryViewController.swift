@@ -59,16 +59,20 @@ class UserRepositoryViewController: UIViewController {
     ///
     /// - Parameter completionHandler: データ取得完了時に呼び出されるコールバック
     private func loadRepositories(completionHandler: @escaping () -> Void) {
-        GitHubService.getRepositoryList(url: self.user.reposUrl, page: self.nextPageNum, completionHandler: { repositoryList, nextPageNum in
-            defer { completionHandler() }
+        defer { completionHandler() }
 
-            self.nextPageNum = nextPageNum
+        guard let page = self.nextPageNum else {
+            // 全データ取得済み
+            return
+        }
+        GitHubService.getRepositoryList(url: self.user.reposUrl, page: page, completionHandler: { repositoryList, nextPageNum in
             guard let repositoryList = repositoryList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
                 snackbar.show()
                 return
             }
+            self.nextPageNum = nextPageNum
 
             let prevCount = self.repositoryList.count
             self.repositoryList.append(contentsOf: repositoryList)

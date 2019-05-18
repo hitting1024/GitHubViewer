@@ -58,17 +58,21 @@ class UserListViewController: UIViewController {
     ///
     /// - Parameter completionHandler: データ取得完了時に呼び出されるコールバック
     private func loadData(completionHandler: @escaping () -> Void) {
-        GitHubService.getUserList(page: self.nextPageNum, completionHandler: { userList, nextPageNum in
-            defer { completionHandler() }
-            
-            self.nextPageNum = nextPageNum
+        defer { completionHandler() }
+        
+        guard let page = self.nextPageNum else {
+            // 全データ取得済み
+            return
+        }
+        GitHubService.getUserList(page: page, completionHandler: { userList, nextPageNum in
             guard let userList = userList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
                 snackbar.show()
                 return
             }
-            
+            self.nextPageNum = nextPageNum
+
             let prevCount = self.userList.count
             self.userList.append(contentsOf: userList)
             // ビュー更新

@@ -17,10 +17,7 @@ class UserCell: UITableViewCell {
     public static let userCellIdentifier = "UserCell"
     /// セルの高さ
     public static let height: CGFloat = 130.0
-    
-    /// デフォルト画像
-    private static let noImage = UIImage(named: "no_image")!
-    
+        
     /// アイコン画像
     @IBOutlet weak var avatarImageView: UIImageView!
     /// ユーザー名
@@ -32,7 +29,7 @@ class UserCell: UITableViewCell {
     func setData(user: User) {
         self.usernameLabel.text = user.login
         let imageFilter = AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarImageView.frame.size, radius: 10.0)
-        self.avatarImageView?.af_setImage(withURL: user.avatarUrl, placeholderImage: UserCell.noImage, filter: imageFilter)
+        self.avatarImageView?.af_setImage(withURL: user.avatarUrl, placeholderImage: Constants.noImage, filter: imageFilter)
     }
     
 }

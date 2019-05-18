@@ -3,6 +3,15 @@ platform :ios, "11.0"
 use_frameworks!
 
 target :'GitHubViewer' do
+    # 通信
+    pod 'Alamofire'
+    pod 'AlamofireImage'
+    
+    # UI
+    pod 'UIScrollView-InfiniteScroll'
+    
+    # Alert
+    pod 'TTGSnackbar'
 end
 
  post_install do | installer |

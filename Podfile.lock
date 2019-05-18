@@ -1,3 +1,29 @@
-PODFILE CHECKSUM: 7710b024d78e024c00046c7ce1469dd40fd9c269
+PODS:
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - TTGSnackbar (1.7.5)
+  - UIScrollView-InfiniteScroll (1.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - TTGSnackbar
+  - UIScrollView-InfiniteScroll
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - TTGSnackbar
+    - UIScrollView-InfiniteScroll
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  TTGSnackbar: 2cf4e7b6ffbe5cddf248a73f3ee952b71bee8ea3
+  UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
+
+PODFILE CHECKSUM: 435d4d36968fa3a672bd1fb466af59345a75c0b8
 
 COCOAPODS: 1.5.3

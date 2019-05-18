@@ -26,25 +26,31 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-lh-SEw">
                         <rect key="frame" x="20" y="38" width="374" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="bn5-6m-0x2"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="langage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQS-XP-IYA">
-                        <rect key="frame" x="30" y="66" width="54.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQS-XP-IYA">
+                        <rect key="frame" x="30" y="66" width="87" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="QW7-Xm-d7g"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="RAi-08-reT">
-                        <rect key="frame" x="114.5" y="66" width="18" height="18"/>
+                        <rect key="frame" x="147" y="66" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="9XM-oJ-cxv"/>
                             <constraint firstAttribute="width" constant="18" id="q7B-l6-Lvg"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-c5-Dvx">
-                        <rect key="frame" x="137.5" y="66" width="59" height="18"/>
+                        <rect key="frame" x="170" y="66" width="59" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -59,6 +65,7 @@
                     <constraint firstItem="pAj-Nl-NIc" firstAttribute="top" secondItem="RUD-Wa-RRX" secondAttribute="top" constant="7" id="YGC-gl-qAZ"/>
                     <constraint firstItem="FQS-XP-IYA" firstAttribute="leading" secondItem="ZDU-lh-SEw" secondAttribute="leading" constant="10" id="afU-He-odl"/>
                     <constraint firstItem="RAi-08-reT" firstAttribute="centerY" secondItem="FQS-XP-IYA" secondAttribute="centerY" id="bOO-Ax-U6r"/>
+                    <constraint firstItem="mfa-c5-Dvx" firstAttribute="top" secondItem="ZDU-lh-SEw" secondAttribute="bottom" constant="10" id="d9O-7a-ZNf"/>
                     <constraint firstItem="mfa-c5-Dvx" firstAttribute="centerY" secondItem="FQS-XP-IYA" secondAttribute="centerY" id="jLm-Ye-6vi"/>
                     <constraint firstItem="pAj-Nl-NIc" firstAttribute="leading" secondItem="RUD-Wa-RRX" secondAttribute="leading" constant="20" id="ovd-mn-F2t"/>
                     <constraint firstItem="ZDU-lh-SEw" firstAttribute="leading" secondItem="pAj-Nl-NIc" secondAttribute="leading" id="vr1-Jn-RY5"/>

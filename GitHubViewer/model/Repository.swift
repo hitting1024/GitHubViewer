@@ -16,10 +16,10 @@ struct Repository: Codable {
     /// リポジトリ名
     let name: String
     /// 開発言語
-    let language: String
+    let language: String?
     /// スター数
     let stargazersCount: Int
     /// 説明文
-    let description: String
+    let description: String?
     
 }

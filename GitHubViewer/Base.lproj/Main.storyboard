@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--GitHubViewer-->
+        <!--GitHub Viewer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="UserListViewController" customModule="GitHubViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="GitHubViewer" id="m6F-Uc-6fa"/>
+                    <navigationItem key="navigationItem" title="GitHub Viewer" id="m6F-Uc-6fa"/>
                     <connections>
                         <outlet property="tableView" destination="EQb-PR-AaG" id="YHl-yU-Xzo"/>
                         <segue destination="RyC-Mm-bCx" kind="show" identifier="showUserRepository" id="Fkd-ZI-H5H"/>

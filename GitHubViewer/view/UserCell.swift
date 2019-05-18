@@ -31,12 +31,8 @@ class UserCell: UITableViewCell {
     /// - Parameter user: 対象ユーザー
     func setData(user: User) {
         self.usernameLabel.text = user.login
-        if let url = URL(string: user.avatarUrl) {
-            let imageFilter = AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarImageView.frame.size, radius: 10.0)
-            self.avatarImageView?.af_setImage(withURL: url, placeholderImage: UserCell.noImage, filter: imageFilter)
-        } else {
-            self.avatarImageView.image = UserCell.noImage
-        }
+        let imageFilter = AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarImageView.frame.size, radius: 10.0)
+        self.avatarImageView?.af_setImage(withURL: user.avatarUrl, placeholderImage: UserCell.noImage, filter: imageFilter)
     }
     
 }

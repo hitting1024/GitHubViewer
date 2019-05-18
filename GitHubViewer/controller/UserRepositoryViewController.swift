@@ -54,6 +54,7 @@ class UserRepositoryViewController: UIViewController {
         switch segue.identifier {
         case SegueIdentifiers.showWeb:
             let vc = segue.destination as! WebViewController
+            vc.title = self.targetRepository?.fullName
             vc.url = self.targetRepository?.htmlUrl
         default:
             break

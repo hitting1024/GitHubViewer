@@ -15,6 +15,8 @@ struct Repository: Codable {
     let fork: Bool
     /// リポジトリ名
     let name: String
+    /// リポジトリ名(フル)
+    let fullName: String
     /// 開発言語
     let language: String?
     /// スター数

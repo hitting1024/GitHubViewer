@@ -29,9 +29,15 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
         
         guard let url = self.url else {
-            self.navigationController?.popViewController(animated: true)
+            let alertController = UIAlertController(title: "Invalid URL", message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.navigationController?.popViewController(animated: true)
+            })
+            alertController.addAction(action)
+            self.present(alertController, animated: true, completion: nil)
             return
         }
+
         self.webView.load(URLRequest(url: url))
     }
     

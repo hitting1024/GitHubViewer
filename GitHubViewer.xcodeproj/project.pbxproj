@@ -20,9 +20,12 @@
 		D8FB1E0D228DB1F500203E4B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1E0C228DB1F500203E4B /* UserCell.xib */; };
 		D8FB1E10228FD92E00203E4B /* UserRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E0F228FD92E00203E4B /* UserRepositoryViewController.swift */; };
 		D8FB1E12228FE8D800203E4B /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E11228FE8D800203E4B /* UserDetail.swift */; };
+		D8FB1E14228FEDD400203E4B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E13228FEDD300203E4B /* Repository.swift */; };
 		D8FB1E162290314600203E4B /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E152290314600203E4B /* UserDetailView.swift */; };
 		D8FB1E18229036A100203E4B /* UserDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1E17229036A100203E4B /* UserDetailView.xib */; };
 		D8FB1E1A229040FE00203E4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E19229040FE00203E4B /* Constants.swift */; };
+		D8FB1E1C229049F700203E4B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1E1B229049F600203E4B /* RepositoryCell.swift */; };
+		D8FB1E1E22904A0300203E4B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1E1D22904A0300203E4B /* RepositoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +47,12 @@
 		D8FB1E0E228F0A5900203E4B /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		D8FB1E0F228FD92E00203E4B /* UserRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewController.swift; sourceTree = "<group>"; };
 		D8FB1E11228FE8D800203E4B /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		D8FB1E13228FEDD300203E4B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		D8FB1E152290314600203E4B /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		D8FB1E17229036A100203E4B /* UserDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailView.xib; sourceTree = "<group>"; };
 		D8FB1E19229040FE00203E4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D8FB1E1B229049F600203E4B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		D8FB1E1D22904A0300203E4B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 			children = (
 				D8FB1E07228B0B6300203E4B /* User.swift */,
 				D8FB1E11228FE8D800203E4B /* UserDetail.swift */,
+				D8FB1E13228FEDD300203E4B /* Repository.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -156,6 +163,8 @@
 				D8FB1E0C228DB1F500203E4B /* UserCell.xib */,
 				D8FB1E152290314600203E4B /* UserDetailView.swift */,
 				D8FB1E17229036A100203E4B /* UserDetailView.xib */,
+				D8FB1E1B229049F600203E4B /* RepositoryCell.swift */,
+				D8FB1E1D22904A0300203E4B /* RepositoryCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8FB1E18229036A100203E4B /* UserDetailView.xib in Resources */,
+				D8FB1E1E22904A0300203E4B /* RepositoryCell.xib in Resources */,
 				D8FB1DFE228AEECB00203E4B /* Settings.bundle in Resources */,
 				D8FB1DF6228AED8100203E4B /* LaunchScreen.storyboard in Resources */,
 				D8FB1DF3228AED8100203E4B /* Assets.xcassets in Resources */,
@@ -310,8 +320,10 @@
 				D8FB1E08228B0B6300203E4B /* User.swift in Sources */,
 				D8FB1E12228FE8D800203E4B /* UserDetail.swift in Sources */,
 				D8FB1DEE228AED7E00203E4B /* UserListViewController.swift in Sources */,
+				D8FB1E14228FEDD400203E4B /* Repository.swift in Sources */,
 				D8FB1E162290314600203E4B /* UserDetailView.swift in Sources */,
 				D8FB1E1A229040FE00203E4B /* Constants.swift in Sources */,
+				D8FB1E1C229049F700203E4B /* RepositoryCell.swift in Sources */,
 				D8FB1E05228B0A8E00203E4B /* GitHubService.swift in Sources */,
 				D8FB1E10228FD92E00203E4B /* UserRepositoryViewController.swift in Sources */,
 				D8FB1E0B228DB1EB00203E4B /* UserCell.swift in Sources */,

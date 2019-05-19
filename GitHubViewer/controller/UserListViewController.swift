@@ -9,6 +9,7 @@
 import UIKit
 
 import TTGSnackbar
+import SCLAlertView
 
 /// ユーザー一覧画面用ViewController
 class UserListViewController: UIViewController {
@@ -81,6 +82,22 @@ class UserListViewController: UIViewController {
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
         })
+    }
+
+}
+
+// MARK: Action
+extension UserListViewController {
+
+    /// GitHubのpersonal access tokenを保存するためのダイアログを表示
+    @IBAction func showConfig(_ sender: Any) {
+        let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let alert = SCLAlertView(appearance: appearance)
+        let textField = alert.addTextField("Personal access token")
+        alert.addButton("Save") {
+            GitHubUtil.savePersonalAccessToken(token: textField.text)
+        }
+        alert.showEdit("Config", subTitle: "Authenticated requests get a higher rate limit. Please enter your GitHub's personal access token.")
     }
 
 }

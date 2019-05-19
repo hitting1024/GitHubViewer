@@ -35,7 +35,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="GitHub Viewer" id="m6F-Uc-6fa"/>
+                    <navigationItem key="navigationItem" title="GitHub Viewer" id="m6F-Uc-6fa">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="settings" id="O26-x3-Gya">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showConfig:" destination="BYZ-38-t0r" id="WMn-oz-yTs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EQb-PR-AaG" id="YHl-yU-Xzo"/>
                         <segue destination="RyC-Mm-bCx" kind="show" identifier="showUserRepository" id="Fkd-ZI-H5H"/>
@@ -123,4 +131,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="50" height="50"/>
+    </resources>
 </document>

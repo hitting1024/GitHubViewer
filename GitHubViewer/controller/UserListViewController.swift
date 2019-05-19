@@ -43,6 +43,11 @@ class UserListViewController: UIViewController {
         })
         // 初回読み込み
         self.tableView.beginInfiniteScroll(true)
+        
+        // Personal Access Tokenが保存されていない場合は、保存ダイアログを表示する
+        if GitHubUtil.getPersonalAccessToken() == nil {
+            self.showConfig(self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

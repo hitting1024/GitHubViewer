@@ -12,6 +12,7 @@ target :'GitHubViewer' do
     
     # Alert
     pod 'TTGSnackbar'
+    pod 'SCLAlertView'
 end
 
  post_install do | installer |

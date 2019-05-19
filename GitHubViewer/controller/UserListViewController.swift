@@ -96,13 +96,14 @@ extension UserListViewController {
 
     /// GitHubのpersonal access tokenを保存するためのダイアログを表示
     @IBAction func showConfig(_ sender: Any) {
-        let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let appearance = SCLAlertView.SCLAppearance(kWindowWidth: self.view.frame.width - 70, showCloseButton: false, buttonsLayout: .horizontal)
         let alert = SCLAlertView(appearance: appearance)
-        let textField = alert.addTextField("Personal access token")
+        let textField = alert.addTextField("New personal access token")
+        alert.addButton("Cancel", backgroundColor: UIColor.darkGray, action: {})
         alert.addButton("Save") {
             GitHubUtil.savePersonalAccessToken(token: textField.text)
         }
-        alert.showEdit("Config", subTitle: "Authenticated requests get a higher rate limit. Please enter your GitHub's personal access token.")
+        alert.showInfo("Config", subTitle: "Authenticated requests get a higher rate limit. Please enter your GitHub's personal access token.")
     }
 
 }

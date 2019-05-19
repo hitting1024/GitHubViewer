@@ -18,7 +18,10 @@ class GitHubUtil {
     ///
     /// - Parameter token: 対象のトークン
     class func savePersonalAccessToken(token: String?) {
-        UserDefaults.standard.set(token, forKey: personalAccessTokenKey)
+        guard let token = token else { return }
+        if !token.isEmpty {
+            UserDefaults.standard.set(token, forKey: personalAccessTokenKey)
+        }
     }
     
     /// Personal Access Tokenを取得する

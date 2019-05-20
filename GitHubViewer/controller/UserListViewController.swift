@@ -96,8 +96,7 @@ extension UserListViewController {
 
     /// GitHubのpersonal access tokenを保存するためのダイアログを表示
     @IBAction func showConfig(_ sender: Any) {
-        let appearance = SCLAlertView.SCLAppearance(kWindowWidth: self.view.frame.width - 70, showCloseButton: false, buttonsLayout: .horizontal)
-        let alert = SCLAlertView(appearance: appearance)
+        let alert = SCLAlertView(appearance: Constants.sCLAlertViewAppearance)
         let textField = alert.addTextField("New personal access token")
         alert.addButton("Cancel", backgroundColor: UIColor.darkGray, action: {})
         alert.addButton("Save") {

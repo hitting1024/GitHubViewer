@@ -8,6 +8,8 @@
 
 import UIKit
 
+import StatusCodes
+
 import TTGSnackbar
 import SCLAlertView
 
@@ -70,7 +72,15 @@ class UserListViewController: UIViewController {
             // 全データ取得済み
             return
         }
-        GitHubService.getUserList(page: page, completionHandler: { userList, nextPageNum in
+        GitHubService.getUserList(page: page, completionHandler: { status, userList, nextPageNum in
+            if let status = status, status == StatusCodes.Code401Unauthorised.code {
+                // 不正な認証情報
+                GitHubUtil.handleInvalidToken()
+                // 再読み込み
+                self.loadData(completionHandler: completionHandler)
+                return
+            }
+            
             guard let userList = userList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)

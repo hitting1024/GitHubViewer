@@ -8,7 +8,10 @@
 
 import UIKit
 
+import StatusCodes
+
 import TTGSnackbar
+import SCLAlertView
 
 /// ユーザー一覧画面用ViewController
 class UserListViewController: UIViewController {
@@ -42,6 +45,11 @@ class UserListViewController: UIViewController {
         })
         // 初回読み込み
         self.tableView.beginInfiniteScroll(true)
+        
+        // Personal Access Tokenが保存されていない場合は、保存ダイアログを表示する
+        if GitHubUtil.getPersonalAccessToken() == nil {
+            self.showConfig(self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,7 +72,15 @@ class UserListViewController: UIViewController {
             // 全データ取得済み
             return
         }
-        GitHubService.getUserList(page: page, completionHandler: { userList, nextPageNum in
+        GitHubService.getUserList(page: page, completionHandler: { status, userList, nextPageNum in
+            if let status = status, status == StatusCodes.Code401Unauthorised.code {
+                // 不正な認証情報
+                GitHubUtil.handleInvalidToken()
+                // 再読み込み
+                self.loadData(completionHandler: completionHandler)
+                return
+            }
+            
             guard let userList = userList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
@@ -81,6 +97,22 @@ class UserListViewController: UIViewController {
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
         })
+    }
+
+}
+
+// MARK: Action
+extension UserListViewController {
+
+    /// GitHubのpersonal access tokenを保存するためのダイアログを表示
+    @IBAction func showConfig(_ sender: Any) {
+        let alert = SCLAlertView(appearance: Constants.sCLAlertViewAppearance)
+        let textField = alert.addTextField("New personal access token")
+        alert.addButton("Cancel", backgroundColor: UIColor.darkGray, action: {})
+        alert.addButton("Save") {
+            GitHubUtil.savePersonalAccessToken(token: textField.text)
+        }
+        alert.showInfo("Config", subTitle: "Authenticated requests get a higher rate limit. Please enter your GitHub's personal access token.")
     }
 
 }

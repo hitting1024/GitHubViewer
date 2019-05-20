@@ -32,17 +32,18 @@ class GitHubService {
     ///
     /// - Parameters:
     ///   - page: 取得ページ番号
-    ///   - completionHandler: GitHubユーザーのリストおよび次ページ番号を渡すコールバック。リストがnilの場合は取得失敗
-    class func getUserList(page: Int, completionHandler: @escaping (Array<User>?, Int?) -> Void) {
-        Alamofire.request(gitHubAPISearchUserURL, parameters: ["q": "type:user", "per_page": "100", "page": page]).responseJSON(completionHandler: { response in
+    ///   - completionHandler: (HTTPステータス, GitHubユーザーのリスト, 次ページ番号) を渡すコールバック。リストがnilの場合は取得失敗
+    class func getUserList(page: Int, completionHandler: @escaping (Int?, Array<User>?, Int?) -> Void) {
+        let headers = createHttpHeaders()
+        Alamofire.request(gitHubAPISearchUserURL, parameters: ["q": "type:user", "per_page": "100", "page": page], headers: headers).responseJSON(completionHandler: { response in
 
             guard let jsonData = response.data else {
-                completionHandler(nil, nil)
+                completionHandler(response.response?.statusCode, nil, nil)
                 return
             }
             let users = try? jsonDecoder.decode(Users.self, from: jsonData)
             let nextPageNum = parseNextPageNum(response.response?.allHeaderFields["Link"] as? String)
-            completionHandler(users?.items, nextPageNum)
+            completionHandler(response.response?.statusCode, users?.items, nextPageNum)
         })
     }
     
@@ -50,19 +51,16 @@ class GitHubService {
     ///
     /// - Parameters:
     ///   - url: 対象ユーザ詳細URL
-    ///   - completionHandler: GitHubユーザー詳細を渡すコールバック。ユーザー詳細がnilの場合は取得失敗
-    class func getUserDetail(url: URL?, completionHandler: @escaping (UserDetail?) -> Void) {
-        guard let url = url else {
-            completionHandler(nil)
-            return
-        }
-        Alamofire.request(url).responseJSON(completionHandler: { response in
+    ///   - completionHandler: (HTTPステータス, GitHubユーザー詳細) を渡すコールバック。ユーザー詳細がnilの場合は取得失敗
+    class func getUserDetail(url: URL, completionHandler: @escaping (Int?, UserDetail?) -> Void) {
+        let headers = createHttpHeaders()
+        Alamofire.request(url, headers: headers).responseJSON(completionHandler: { response in
             guard let jsonData = response.data else {
-                completionHandler(nil)
+                completionHandler(response.response?.statusCode, nil)
                 return
             }
             let userDetail = try? jsonDecoder.decode(UserDetail.self, from: jsonData)
-            completionHandler(userDetail)
+            completionHandler(response.response?.statusCode, userDetail)
         })
     }
     
@@ -70,21 +68,26 @@ class GitHubService {
     ///
     /// - Parameters:
     ///   - url: 対象リポジトリURL
-    ///   - completionHandler: forkedを除いたGitHubリポジトリのリストおよび次ページ番号を渡すコールバック。リストがnilの場合は取得失敗
-    class func getRepositoryList(url: URL?, page: Int, completionHandler: @escaping (Array<Repository>?, Int?) -> Void) {
-        guard let url = url else {
-            completionHandler(nil, nil)
-            return
-        }
-        Alamofire.request(url, parameters: ["per_page": "100", "page": page]).responseJSON(completionHandler: { response in
+    ///   - completionHandler: (HTTPステータス, forkedを除いたGitHubリポジトリのリスト, 次ページ番号) を渡すコールバック。リストがnilの場合は取得失敗
+    class func getRepositoryList(url: URL, page: Int, completionHandler: @escaping (Int?, Array<Repository>?, Int?) -> Void) {
+        let headers = createHttpHeaders()
+        Alamofire.request(url, parameters: ["per_page": "100", "page": page], headers: headers).responseJSON(completionHandler: { response in
             guard let jsonData = response.data else {
-                completionHandler(nil, nil)
+                completionHandler(response.response?.statusCode, nil, nil)
                 return
             }
             let repositories = try? jsonDecoder.decode([Repository].self, from: jsonData)
             let nextPageNum = parseNextPageNum(response.response?.allHeaderFields["Link"] as? String)
-            completionHandler(repositories?.filter { return !$0.fork }, nextPageNum)
+            completionHandler(response.response?.statusCode, repositories?.filter { return !$0.fork }, nextPageNum)
         })
+    }
+    
+    /// GitHub APIリクエスト用のHttpHeaderを作成する
+    ///
+    /// - Returns: Personal Access Tokenを埋め込んだHTTPHeaders。Personal Access Tokenが保存されていない場合はnil
+    private class func createHttpHeaders() -> HTTPHeaders? {
+        guard let token = GitHubUtil.getPersonalAccessToken() else { return nil }
+        return ["Authorization": "token \(token)"]
     }
     
     /// Linkヘッダーから次ページ番号を取得する

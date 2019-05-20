@@ -8,6 +8,8 @@
 
 import UIKit
 
+import StatusCodes
+
 import TTGSnackbar
 
 /// ユーザーリポジトリ画面用ViewController
@@ -63,7 +65,13 @@ class UserRepositoryViewController: UIViewController {
     
     /// ユーザー詳細データ取得
     private func loadUserDetail() {
-        GitHubService.getUserDetail(url: self.user.url, completionHandler: { userDetail in
+        GitHubService.getUserDetail(url: self.user.url, completionHandler: { status, userDetail in
+            if let status = status, status == StatusCodes.Code401Unauthorised.code {
+                // 不正な認証情報
+                // リポジトリ一覧データ取得側で対応
+                return
+            }
+
             guard let userDetail = userDetail else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)
@@ -84,7 +92,16 @@ class UserRepositoryViewController: UIViewController {
             // 全データ取得済み
             return
         }
-        GitHubService.getRepositoryList(url: self.user.reposUrl, page: page, completionHandler: { repositoryList, nextPageNum in
+        GitHubService.getRepositoryList(url: self.user.reposUrl, page: page, completionHandler: { status, repositoryList, nextPageNum in
+            if let status = status, status == StatusCodes.Code401Unauthorised.code {
+                // 不正な認証情報
+                GitHubUtil.handleInvalidToken()
+                // 再読み込み
+                self.loadUserDetail()
+                self.loadRepositories(completionHandler: completionHandler)
+                return
+            }
+
             guard let repositoryList = repositoryList else {
                 // 取得失敗ダイアログ表示
                 let snackbar = TTGSnackbar(message: "Failed to load data.", duration: .middle)

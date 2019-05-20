@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E80B4F94E55357B551E763F /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EB073BDB1E33D1E0B13990 /* Pods_GitHubViewer.framework */; };
+		D891C4F12291AB40009B4A28 /* GitHubUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891C4F02291AB40009B4A28 /* GitHubUtil.swift */; };
 		D8FB1DEC228AED7E00203E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1DEB228AED7E00203E4B /* AppDelegate.swift */; };
 		D8FB1DEE228AED7E00203E4B /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB1DED228AED7E00203E4B /* UserListViewController.swift */; };
 		D8FB1DF1228AED7E00203E4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FB1DEF228AED7E00203E4B /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		57EB073BDB1E33D1E0B13990 /* Pods_GitHubViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		586A3BAFB706B6ACA94979E7 /* Pods-GitHubViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C488F3D143937417B8014B67 /* Pods-GitHubViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer.release.xcconfig"; sourceTree = "<group>"; };
+		D891C4F02291AB40009B4A28 /* GitHubUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUtil.swift; sourceTree = "<group>"; };
 		D8FB1DE8228AED7E00203E4B /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FB1DEB228AED7E00203E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8FB1DED228AED7E00203E4B /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D891C4EF2291AADD009B4A28 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D891C4F02291AB40009B4A28 /* GitHubUtil.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		D8FB1DDF228AED7E00203E4B = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 				D8FB1E09228DB1D500203E4B /* view */,
 				D8FB1E02228B071600203E4B /* service */,
 				D8FB1E06228B0B5100203E4B /* model */,
+				D891C4EF2291AADD009B4A28 /* util */,
 				D8FB1E03228B075B00203E4B /* resources */,
 			);
 			path = GitHubViewer;
@@ -257,6 +268,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/StatusCodes/StatusCodes.framework",
 				"${BUILT_PRODUCTS_DIR}/TTGSnackbar/TTGSnackbar.framework",
 				"${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework",
 			);
@@ -266,6 +279,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusCodes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTGSnackbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScrollView_InfiniteScroll.framework",
 			);
@@ -328,6 +343,7 @@
 				D8FB1E1A229040FE00203E4B /* Constants.swift in Sources */,
 				D8FB1E1C229049F700203E4B /* RepositoryCell.swift in Sources */,
 				D8FB1E2022906F0900203E4B /* WebViewController.swift in Sources */,
+				D891C4F12291AB40009B4A28 /* GitHubUtil.swift in Sources */,
 				D8FB1E05228B0A8E00203E4B /* GitHubService.swift in Sources */,
 				D8FB1E10228FD92E00203E4B /* UserRepositoryViewController.swift in Sources */,
 				D8FB1E0B228DB1EB00203E4B /* UserCell.swift in Sources */,

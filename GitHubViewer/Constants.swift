@@ -8,10 +8,15 @@
 
 import Foundation
 
+import SCLAlertView
+
 /// 定数
 class Constants {
 
     /// 画像なし
     public static let noImage = UIImage(named: "no_image")!
+    
+    /// SCLAlertViewの外観
+    public static let sCLAlertViewAppearance = SCLAlertView.SCLAppearance(kWindowWidth: UIScreen.main.bounds.size.width - 70, showCloseButton: false, buttonsLayout: .horizontal)
 
 }

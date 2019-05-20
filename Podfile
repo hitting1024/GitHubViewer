@@ -6,12 +6,14 @@ target :'GitHubViewer' do
     # 通信
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'StatusCodes'
     
     # UI
     pod 'UIScrollView-InfiniteScroll'
     
     # Alert
     pod 'TTGSnackbar'
+    pod 'SCLAlertView'
 end
 
  post_install do | installer |

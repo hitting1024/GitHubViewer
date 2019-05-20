@@ -8,6 +8,8 @@
 
 import Foundation
 
+import SCLAlertView
+
 /// GitHub用ユーティリティ
 class GitHubUtil {
     
@@ -29,6 +31,19 @@ class GitHubUtil {
     /// - Returns: 保存されているトークン。保存されていない場合はnil
     class func getPersonalAccessToken() -> String? {
         return UserDefaults.standard.string(forKey: personalAccessTokenKey)
+    }
+    
+    /// 保存されているPersonal Access Tokenを削除する
+    class func clearPersonalAccessToken() {
+        UserDefaults.standard.removeObject(forKey: personalAccessTokenKey)
+    }
+    
+    /// 不正な認証情報時の対応
+    class func handleInvalidToken() {
+        GitHubUtil.clearPersonalAccessToken()
+        let alert = SCLAlertView(appearance: Constants.sCLAlertViewAppearance)
+        alert.addButton("OK", action: {})
+        alert.showWarning("Invalid Personal Access Token", subTitle: "Please re-enter your GitHub's personal access token.")
     }
     
 }

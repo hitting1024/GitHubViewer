@@ -6,6 +6,7 @@ target :'GitHubViewer' do
     # 通信
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'StatusCodes'
     
     # UI
     pod 'UIScrollView-InfiniteScroll'

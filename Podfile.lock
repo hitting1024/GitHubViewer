@@ -8,12 +8,12 @@ PODS:
   - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlamofireImage
-  - SCLAlertView
-  - StatusCodes
-  - TTGSnackbar
-  - UIScrollView-InfiniteScroll
+  - Alamofire (= 4.8.2)
+  - AlamofireImage (= 3.5.2)
+  - SCLAlertView (= 0.8)
+  - StatusCodes (= 2.0.2)
+  - TTGSnackbar (= 1.7.5)
+  - UIScrollView-InfiniteScroll (= 1.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   TTGSnackbar: 2cf4e7b6ffbe5cddf248a73f3ee952b71bee8ea3
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 41dc7a3e132ec73b7c59e119e8bf08fdefc7dcc6
+PODFILE CHECKSUM: 2c8ca1e26cbd463fd6557eb32900d97ce6e88f47
 
 COCOAPODS: 1.5.3
